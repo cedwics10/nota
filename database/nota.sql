@@ -59,7 +59,7 @@ CREATE TABLE commande_article (
 CREATE TABLE paiement (
     pai_id BIGSERIAL PRIMARY KEY,
     pai_com_id BIGINT,
-    pai_moyen TEXT NOT NULL,
+    pai_moyen VARCHAR(10) NOT NULL,
     pai_montant NUMERIC(8,2) NOT NULL,
     pai_datetime TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
