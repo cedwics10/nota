@@ -1,4 +1,4 @@
-CREATE TABLE tables (
+CREATE TABLE table_commande (
     tab_id BIGSERIAL PRIMARY KEY,
     tab_numero BIGINT UNIQUE NOT NULL,
     tab_qr_code TEXT
@@ -104,7 +104,7 @@ ALTER TABLE happy_article_reduction
     ADD FOREIGN KEY (har_art_id) REFERENCES article(art_id);
 
 ALTER TABLE commande
-    ADD FOREIGN KEY (com_tab_id) REFERENCES tables(tab_id);
+    ADD FOREIGN KEY (com_tab_id) REFERENCES table_commande(tab_id);
 
 ALTER TABLE commande_article
     ADD FOREIGN KEY (coa_com_id) REFERENCES commande(com_id),
