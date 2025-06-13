@@ -1,22 +1,21 @@
-version: '3.8'
-
 services:
   db:
-    build:
-      context: ./database        # Contient le Dockerfile + nota.sql
+    image: postgres:17
     container_name: db_postgres
     environment:
       POSTGRES_DB: nota
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
-      - "5432:5432"
+      - "15432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+      - ./database/nota.sql:/docker-entrypoint-initdb.d/nota.sql
+
 
   backend:
     build:
-      context: ./backend         # Ton app Spring Boot est ici
+      context: ./backend
     container_name: spring_backend
     ports:
       - "8080:8080"
